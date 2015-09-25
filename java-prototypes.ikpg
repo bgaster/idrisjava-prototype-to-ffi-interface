@@ -1,0 +1,8 @@
+package javaprototypes
+
+opts = "-p lightyear -p wlpprint"
+sourcedir = src
+modules = Main, Java.Syntax, Java.Parser
+
+main = Main
+executable = javaprototypes
