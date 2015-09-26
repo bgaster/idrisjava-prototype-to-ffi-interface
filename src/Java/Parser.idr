@@ -1,4 +1,4 @@
--- ---------------------------------------------------------------- [ Core.idr ]
+-- ---------------------------------------------------------------- [ Parser.idr ]
 -- Module      : Java.Parser
 -- Description : Parser for a subset of Java
 --
@@ -58,7 +58,10 @@ identifier : Parser Identifier
 identifier = do
   c <- letter
   rest <- many alphaNum
-  return $ Ident $ strCons c $ pack rest
+  let str = strCons c $ pack rest
+  if isKeyword str
+    then fail "keyword not an identifier"
+    else pure $ Ident str
 
 name : Parser Name
 name = sepBy1 identifier dot >>= return . N
