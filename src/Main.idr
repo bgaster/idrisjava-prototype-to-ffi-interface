@@ -25,7 +25,7 @@
 --               is converted too:
 --
 --    AddT : Type
---    AddT : Int -> JAVA_IO Foo
+--    AddT : Foo -> Int -> JAVA_IO Int
 --
 --    add : AddT
 --    add y = invokedyn "add" AddT y
